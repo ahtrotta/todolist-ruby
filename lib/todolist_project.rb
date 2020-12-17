@@ -3,6 +3,7 @@
 # flag to show whether this todo item is done.
 
 require 'bundler/setup'
+require 'stamp'
 
 class Todo
   DONE_MARKER = 'X'
@@ -29,7 +30,9 @@ class Todo
   end
 
   def to_s
-    "[#{done? ? DONE_MARKER : UNDONE_MARKER}] #{title}"
+    result = "[#{done? ? DONE_MARKER : UNDONE_MARKER}] #{title}"
+    result += due_date.stamp(' (Due: Friday January 6)') if due_date
+    result
   end
 
   def ==(otherTodo)
