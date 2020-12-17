@@ -1,2 +1,4 @@
 *.rb~
 *.un~
+Gemfile~
+.gitignore~
